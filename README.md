@@ -1,6 +1,9 @@
 
 # Open Bar (GNOME 4X Extension)  
 
+> Personal maintenance fork for GNOME 50. It preserves Open Bar's UUID and
+> settings while carrying narrowly scoped compatibility and GTK fixes.
+
 
 A GNOME Shell extension for theming Gnome Top Bar / Top Panel, Menus, Dash/Dock, Gnome Shell and Gtk/Flatpak Apps.  
 
@@ -156,5 +159,4 @@ Some More Samples:
 ![Screenshot](screens/b2.png)
 ![Screenshot](screens/b3.png)
 ![Screenshot](screens/b4.png)
-
 
