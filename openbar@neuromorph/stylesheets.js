@@ -2934,6 +2934,12 @@ function getStylesheet(obar, Me) {
                 background-color: ${mshg} !important;
             }
 
+            /* GNOME 50 gives checked split toggles an accent-colored separator. */
+            ${openmenuClass}.quick-menu-toggle .quick-toggle-separator,
+            ${openmenuClass}.quick-toggle-has-menu .quick-toggle-separator {
+                background-color: rgba(${mshred},${mshgreen},${mshblue},0.13) !important;
+            }
+
             ${openmenuClass}.quick-menu-toggle .quick-toggle-arrow,
             ${openmenuClass}.quick-toggle-has-menu .quick-toggle-arrow {
                 color: rgba(${smfgred},${smfggreen},${smfgblue},${mfgAlpha}) !important;
