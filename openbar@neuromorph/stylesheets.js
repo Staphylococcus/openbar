@@ -432,6 +432,15 @@ function createGtkCss(obar, gtk4) {
         background-color: @view_backdrop_color;
     }
 
+    /* AdwComboRow renders its selected value as an inline GtkListView.
+     * Keep it transparent instead of painting a label-sized rectangle. */
+    row.combo listview.inline,
+    row.combo listview.inline:disabled,
+    row.combo listview.inline:backdrop {
+        background: none;
+        color: inherit;
+    }
+
     @define-color accent_color rgba(${accRed}, ${accGreen}, ${accBlue}, 1.0);
     @define-color accent_bg_color rgba(${accRed}, ${accGreen}, ${accBlue}, 0.85);
     @define-color accent_fg_color rgba(${afgRed}, ${afgGreen}, ${afgBlue}, 0.9);
