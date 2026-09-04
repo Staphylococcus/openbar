@@ -36,7 +36,8 @@ import * as Quantize from './quantize.js';
 import * as AutoThemes from './autothemes.js';
 import * as StyleSheets from './stylesheets.js';
 
-Gio._promisify(Gio.File.prototype, "copy_async", "copy_finish");
+if (Gio._promisify)
+    Gio._promisify(Gio.File.prototype, "copy_async", "copy_finish");
 
 // ConnectManager class to manage connections for events to trigger Openbar style updates
 // This class is modified from Floating Panel extension (Thanks Aylur!)
@@ -383,15 +384,16 @@ export default class Openbar extends Extension {
                         this.applySectionStyles(sectionList, add);
 
                         const msgHbox = msgbox.get_child_at_index(1); // hbox at botton for dnd and clear buttons
+                        let clearBtn;
                         if(this.gnomeVersion < 49) {
                             const dndBtn = msgHbox.get_child_at_index(1);
                             this.applyMenuClass(dndBtn, add);
                             const toggleSwitch = dndBtn.get_child_at_index(0);
                             this.applyMenuClass(toggleSwitch, add);
-                            const clearBtn = msgHbox.get_child_at_index(2);
+                            clearBtn = msgHbox.get_child_at_index(2);
                         }
                         else {
-                            const clearBtn = msgHbox.get_child_at_index(1);
+                            clearBtn = msgHbox.get_child_at_index(1);
                         }
                         this.applyMenuClass(clearBtn, add);
 
@@ -1661,4 +1663,3 @@ export default class Openbar extends Extension {
         this._shellSettings = null;
     }
 }
-
